@@ -46,8 +46,6 @@ jobs:
         pip install 'twine>=1.12.1,<2'
         pip install wheel
         pip install jq
-        ls -a 
-        pwd
         python setup.py \
           egg_info --tag-build $(./lib/latest-alpha-version.sh $(python setup.py --name) $(python setup.py --version)) \
           sdist bdist_wheel

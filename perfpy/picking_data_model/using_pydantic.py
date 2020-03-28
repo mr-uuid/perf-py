@@ -11,6 +11,7 @@ class Human(BaseModel):
     dob: datetime
     friends: List['Human'] = []
 
+
 Human.update_forward_refs()
 
 
@@ -28,7 +29,7 @@ def generate_alt_1(num_to_generate):
 
 def generate_alt_2(num_to_generate):
     return map(
-        lambda x : Human(
+        lambda x: Human(
             name=str(uuid.uuid4()),
             dob=datetime.utcnow(),
             friends=[

@@ -18,9 +18,10 @@ def generate_alt_1(num_to_generate):
             ]
         }
 
+
 def generate_alt_2(num_to_generate):
     return map(
-        lambda x : (
+        lambda x: (
             {
                 "name": str(uuid.uuid4()),
                 "dob": datetime.utcnow(),
@@ -36,5 +37,7 @@ def generate_alt_2(num_to_generate):
         np.ones((num_to_generate, 1))
     )
 
+
 if __name__ == "__main__":
-    print(next(generate()))
+    print(next(generate_alt_1(1)))
+    print(next(generate_alt_2(1)))

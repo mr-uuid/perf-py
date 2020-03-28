@@ -1,7 +1,5 @@
 # -*- coding: utf8 -*-
 
-import os
-
 from setuptools import setup, find_packages
 
 with open("README.md") as fh:
@@ -29,7 +27,7 @@ setup(
     install_requires=[
         "attrs",
         "pydantic",
-        "toolz", # https://toolz.readthedocs.io/en/latest/api.html
+        "toolz",  # https://toolz.readthedocs.io/en/latest/api.html
         "numpy"
         # 'jinja2',
         # 'invoke>=0.13',
@@ -45,7 +43,7 @@ setup(
             "pytest-pep8",
             "pytest-profiling",  # https://pypi.org/project/pytest-profiling/
             "pstats-view",  # https://github.com/ssanderson/pstats-view
-            "ipython",
+            "flake8",
             # 'manuel',
             # 'pytest-cov',
             # 'coverage',
@@ -53,7 +51,7 @@ setup(
         ],
     },
     # Data files
-    package_data={ },
+    package_data={},
     # Scripts
     entry_points={
         'console_scripts': [

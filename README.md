@@ -7,3 +7,6 @@ A library that personally helps me understand the performance of common python c
 # Todo
 - [ ] Make a table of the performance of each function ...
     - [ ] Open this up in a notebook!
+
+# Personal Reminders
+- To publish to pypi w/o an alpha version, push a commit with `Publish To PYPI` in its commit message.

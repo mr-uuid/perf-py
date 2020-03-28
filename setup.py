@@ -8,7 +8,7 @@ with open("README.md") as fh:
 setup(
     # Basic info
     name="perfpy",
-    version="0.0.1",
+    version="0.0.2",
     author='Omar Eid',
     author_email='contact.omar.eid@gmail.com',
     url='https://github.com/mr-uuid/perfpy',

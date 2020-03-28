@@ -46,7 +46,8 @@ jobs:
         pip install 'twine>=1.12.1,<2'
         pip install wheel
         pip install jq
-        python setup.py \
-          egg_info --tag-build $(./lib/latest-alpha-version.sh $(python setup.py --name) $(python setup.py --version)) \
-          sdist bdist_wheel
+        ( ( git --no-pager log -1 --pretty=%B | grep -i "Publish To PYPI" ) && python setup.py sdist bdist_wheel ) \
+          || python setup.py \
+              egg_info --tag-build $(./lib/latest-alpha-version.sh $(python setup.py --name) $(python setup.py --version)) \
+              sdist bdist_wheel
         twine upload --repository-url https://upload.pypi.org/legacy/ dist/*

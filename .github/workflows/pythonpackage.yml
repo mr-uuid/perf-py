@@ -38,3 +38,11 @@ jobs:
       run: |
         pip install pytest
         pytest
+    - name: Publish to PYPI
+      env: # Or as an environment variable
+        TWINE_USERNAME: ${{ secrets.PERFPY_PYPI_USERNAME }}
+        TWINE_PASSWORD: ${{ secrets.PERFPY_PYPI_PASSWORD }}
+      run: |
+        pip install 'twine>=1.12.1,<2'
+        python setup.py sdist bdist_wheel
+        twine upload --repository-url https://upload.pypi.org/legacy/ dist/*

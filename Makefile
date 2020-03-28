@@ -2,6 +2,8 @@ SHELL := /bin/bash
 MAKEFILE_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 ENV := perfpy
 PIP := $(shell dirname ${CONDA_PYTHON_EXE})/../envs/${ENV}/bin/pip
+DISTRIBUTION_NAME = $(shell python setup.py --name)
+DISTRIBUTION_VERSION = $(shell python setup.py --version)
 
 env.teardown:
 		conda env remove -n perfpy || true
@@ -42,3 +44,24 @@ lint:
 			--follow-imports=skip \
 			--strict-optional \
 			picking_data_model/using_pydantic.py
+
+build.alpha: clean
+	python setup.py egg_info --tag-build a$(shell \
+		curl https://pypi.org/pypi/${DISTRIBUTION_NAME}/json | \
+		jq '[ \
+			.releases | \
+			to_entries[] | \
+			.key | \
+			select(. | contains("${DISTRIBUTION_VERSION}a")) | \
+			ltrimstr("${DISTRIBUTION_VERSION}a") | \
+			tonumber \
+		] | sort | \
+		last // 0 | \
+		. + 1' \
+	) sdist bdist_wheel
+
+dev.push: build.alpha
+	twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
+
+simulate.github.secret:
+	@echo 'PERFPY_PYPI_TOKEN='$$(cat secret.txt | base64)

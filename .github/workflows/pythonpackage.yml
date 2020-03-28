@@ -46,4 +46,5 @@ jobs:
         pip install 'twine>=1.12.1,<2'
         pip install wheel
         python setup.py sdist bdist_wheel
+        echo "${TWINE_USERNAME}"
         twine upload --repository-url https://upload.pypi.org/legacy/ dist/*

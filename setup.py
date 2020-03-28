@@ -7,7 +7,7 @@ with open("README.md") as fh:
 
 setup(
     # Basic info
-    name="demo-py",
+    name="perf-py",
     version="0.0.1",
     author='Omar Eid',
     author_email='contact.omar.eid@gmail.com',

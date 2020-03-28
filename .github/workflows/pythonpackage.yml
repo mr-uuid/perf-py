@@ -44,5 +44,6 @@ jobs:
         TWINE_PASSWORD: ${{ secrets.PERFPY_PYPI_PASSWORD }}
       run: |
         pip install 'twine>=1.12.1,<2'
+        pip install wheel
         python setup.py sdist bdist_wheel
         twine upload --repository-url https://upload.pypi.org/legacy/ dist/*

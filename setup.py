@@ -14,6 +14,7 @@ setup(
     url='https://github.com/mr-uuid',
     description='Understanding performance characteristics of common python constructs',
     long_description=long_description,
+    long_description_content_type='text/markdown',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',

@@ -11,7 +11,7 @@ setup(
     version="0.0.1",
     author='Omar Eid',
     author_email='contact.omar.eid@gmail.com',
-    url='https://github.com/mr-uuid',
+    url='https://github.com/mr-uuid/perfpy',
     description='Understanding performance characteristics of common python constructs',
     long_description=long_description,
     long_description_content_type='text/markdown',

@@ -9,6 +9,6 @@ Config = namedtuple("Config", ["num_to_consume"])
 def test_config():
     print("Setup")
     yield Config(
-        num_to_consume=1_000_000
+        num_to_consume=10_000
     )
     print("Teardown")

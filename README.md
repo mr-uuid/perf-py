@@ -13,3 +13,18 @@ A library that personally helps me understand the performance of common python c
 
 # Personal Reminders
 - To publish to pypi w/o an alpha version, push a commit with `Publish To PYPI` in its commit message.
+
+
+## TODO
+
+# Chunking and garbage collecting simultaneously 
+
+l = list(range(100))
+
+batchsize = 11
+
+while len(l) > 0:
+    print(l)
+    print(l[:batchsize])
+    del l[:batchsize]
+

@@ -67,3 +67,6 @@ dev.push: build.alpha
 
 simulate.github.secret:
 	@echo 'PERFPY_PYPI_TOKEN='$$(cat secret.txt | base64)
+
+clean_notebooks:
+	cat ${MAKEFILE_DIR}/notebooks/AnalyzingPerformance.ipynb | jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to=notebook --stdin --stdout --log-level=ERROR
